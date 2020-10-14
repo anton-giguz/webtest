@@ -61,6 +61,12 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>4.2.2</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -117,21 +123,6 @@
                         <phase>post-integration-test</phase>
                         <goals>
                             <goal>aggregate</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>com.lazerycode.selenium</groupId>
-                <artifactId>driver-binary-downloader-maven-plugin</artifactId>
-                <version>1.0.18</version>
-                <configuration>
-                    <rootStandaloneServerDirectory>${project.basedir}/src/test/resources/webdriver</rootStandaloneServerDirectory>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>selenium</goal>
                         </goals>
                     </execution>
                 </executions>
