@@ -63,6 +63,10 @@ public class SearchPage extends PageObject {
         find(By.xpath("//*[text()=\"Найти\"]/parent::button")).click();
     }
 
+    public void selectSearchInAllCategories() {
+        find(By.xpath("//a[starts-with(@href, \"/search?\")]")).click();
+    }
+
     public void saveFoundByKeywords() {
         foundByKeywordsTitle = getTitle(getSearchResults().get(0));
         foundByKeywordsPrice = getPrice(getSearchResults().get(0));

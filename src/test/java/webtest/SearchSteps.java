@@ -24,6 +24,7 @@ public class SearchSteps {
     @Step
     public void searchesByKeywords() {
         page.typeKeywords();
+        page.selectSearchInAllCategories();
         page.saveFoundByKeywords();
     }
 

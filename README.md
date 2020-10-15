@@ -14,7 +14,8 @@ This test performs the following steps:
 5. Output the top 5 results to the log
 6. Remember the second result (name and price)
 7. Type the name into the search field and click the search button
-8. Check that the first search result is the same as the one saved on step 6
+8. Switch to the search in all categories
+9. Check that the first search result is the same as the one saved on step 6
 
 
 ## Prerequisites
