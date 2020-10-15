@@ -33,12 +33,12 @@ public class SearchPage extends PageObject {
     }
 
     public void selectManufacturer() {
-        find(By.xpath("//span[text()=\"Samsung\"]/parent::div")).click();
+        find(By.xpath("//*[text()=\"Samsung\"]/parent::div")).click();
         pause();
     }
 
     public void selectSorting() {
-        find(By.linkText("по цене")).click();
+        find(By.xpath("//*[text()=\"по цене\"]")).click();
         pause();
     }
 
@@ -60,13 +60,12 @@ public class SearchPage extends PageObject {
 
     public void typeKeywords() {
         typeInto(find(By.id("header-search")), foundByCriteriaTitle);
-        find(By.xpath("//span[text()=\"Найти\"]/parent::button")).click();
+        find(By.xpath("//*[text()=\"Найти\"]/parent::button")).click();
     }
 
     public void saveFoundByKeywords() {
-        WebElement first = getSearchResults().get(0);
-        foundByKeywordsTitle = getTitle(first);
-        foundByKeywordsPrice = getPrice(first);
+        foundByKeywordsTitle = getTitle(getSearchResults().get(0));
+        foundByKeywordsPrice = getPrice(getSearchResults().get(0));
     }
 
     public void compareFound() {
@@ -83,16 +82,16 @@ public class SearchPage extends PageObject {
     }
 
     private List<WebElement> getSearchResults() {
-        return find(By.className("n-filter-applied-results"))
-                .findElements(By.className("n-snippet-card2"));
+        return find(By.xpath("//*[@data-zone-name=\"SearchResults\"]"))
+                .findElements(By.xpath(".//*[@data-zone-name=\"snippet-card\"]"));
     }
 
     private String getTitle(WebElement item) {
-        return item.findElement(By.className("n-snippet-card2__title")).getText();
+        return item.findElement(By.xpath(".//*[@data-zone-name=\"title\"]")).getText();
     }
 
     private String getPrice(WebElement item) {
-        return item.findElement(By.className("n-snippet-card2__main-price")).getText();
+        return item.findElement(By.xpath(".//*[@data-zone-name=\"price\"]//a")).getText();
     }
 
 }
